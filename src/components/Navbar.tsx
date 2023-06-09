@@ -8,7 +8,7 @@ function Navbar() {
       <ul>
         <li>
           <Link href="/">
-            <button className="btn-blue">FEED</button>
+            <button className="">FEED</button>
           </Link>
         </li>
         {username && (
