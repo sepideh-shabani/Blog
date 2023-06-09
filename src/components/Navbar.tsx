@@ -1,8 +1,25 @@
+import { UserContext } from "@/lib/context";
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
+// import NextImage from "next/image";
+
+// const Image = (props) => {
+//   if (props.src) {
+//     return <NextImage {...props} />;
+//   }
+
+//   //TODO: if the image source is not there, you can set a default source
+//   //const defaultSrc = "something"
+
+//   return <img {...props} src={""} />;
+// };
 
 function Navbar() {
-  const { username = null, user = null } = {};
+  const { username, user } = useContext(UserContext);
+
+  console.log("user:", user, "username:", username);
+
   return (
     <nav className="navbar">
       <ul>
@@ -20,7 +37,12 @@ function Navbar() {
             </li>
             <li>
               <Link href={`/${username}`}>
-                <Image src={user?.photoURL} alt="username" />
+                <Image
+                  src={user?.photoURL}
+                  width="50"
+                  height="50"
+                  alt="profile avatar"
+                />
               </Link>
             </li>
           </>
